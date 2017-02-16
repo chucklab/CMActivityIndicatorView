@@ -12,7 +12,7 @@
 
 static const CGFloat DefaultRingRadius = 10.0;
 static const CGFloat DefaultRingThickness = 4.0;
-static const NSTimeInterval AnimationDuration = 1.0;
+static const NSTimeInterval AnimationDuration = 0.5;
 
 @interface MCActivityIndicatorView ()
 
