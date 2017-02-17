@@ -17,6 +17,7 @@ static const NSTimeInterval AnimationDuration = 0.5;
 @interface MCActivityIndicatorView ()
 
 @property (nonatomic, strong) CAShapeLayer *circleLayer;
+@property (nonatomic, assign) BOOL isAnimating;
 
 @end
 
@@ -32,6 +33,10 @@ static const NSTimeInterval AnimationDuration = 0.5;
     self.ringColor = DefaultRingColor;
     self.ringRadius = DefaultRingRadius;
     self.ringThickness = DefaultRingThickness;
+    
+    // Notifications
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(applicationDidEnterBackground:) name:UIApplicationDidEnterBackgroundNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(applicationWillEnterForeground:) name:UIApplicationWillEnterForegroundNotification object:nil];
     
     return self;
 }
@@ -63,6 +68,8 @@ static const NSTimeInterval AnimationDuration = 0.5;
 
 #pragma mark - Start and stop
 - (void)startAnimating {
+    self.isAnimating = YES;
+
     // Setup circle layer
     [self setupCircleLayer];
     
@@ -79,6 +86,8 @@ static const NSTimeInterval AnimationDuration = 0.5;
 }
 
 - (void)stopAnimating {
+    self.isAnimating = NO;
+
     [self.circleLayer removeAllAnimations];
     self.circleLayer.hidden = YES;
 }
@@ -104,6 +113,20 @@ static const NSTimeInterval AnimationDuration = 0.5;
     strokeEndAnimation.repeatCount = 1;
     strokeEndAnimation.fillMode = kCAFillModeForwards;
     return strokeEndAnimation;
+}
+
+#pragma mark - Notifications
+- (void)applicationDidEnterBackground:(NSNotification *)notification {
+    if (self.isAnimating) {
+        [self stopAnimating];
+        self.isAnimating = YES;
+    }
+}
+
+- (void)applicationWillEnterForeground:(NSNotification *)notification {
+    if (self.isAnimating) {
+        [self startAnimating];
+    }
 }
 
 @end

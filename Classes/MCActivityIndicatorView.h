@@ -14,6 +14,8 @@
 @property (nonatomic, assign) CGFloat ringRadius; // Default is 10.0
 @property (nonatomic, assign) CGFloat ringThickness; // Default is 4.0
 
+@property (nonatomic, assign, readonly) BOOL isAnimating;
+
 #pragma mark - Start and stop
 - (void)startAnimating;
 - (void)stopAnimating;
