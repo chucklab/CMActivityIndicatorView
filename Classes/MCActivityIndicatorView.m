@@ -38,6 +38,9 @@ static const NSTimeInterval AnimationDuration = 0.5;
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(applicationDidEnterBackground:) name:UIApplicationDidEnterBackgroundNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(applicationWillEnterForeground:) name:UIApplicationWillEnterForegroundNotification object:nil];
     
+    // Setup circle layer
+    [self setupCircleLayer];
+    
     return self;
 }
 
@@ -66,13 +69,39 @@ static const NSTimeInterval AnimationDuration = 0.5;
     self.circleLayer.hidden      = YES;
 }
 
+#pragma mark - Setters & Getters
+- (void)setRingColor:(UIColor *)ringColor {
+    _ringColor = ringColor;
+    
+    self.circleLayer.strokeColor = self.ringColor.CGColor;
+}
+
+- (void)setRingRadius:(CGFloat)ringRadius {
+    _ringRadius = ringRadius;
+    
+    self.circleLayer.frame = CGRectMake(0, 0, self.ringRadius * 2, self.ringRadius * 2);
+    // Make a bezier path
+    const CGPoint center = CGPointMake(0, 0);
+    const CGFloat angleOffset = -M_PI_2;
+    const CGFloat startAngle = 0.0 + angleOffset;
+    const CGFloat endAngle = M_PI * 2 + angleOffset;
+    self.circleLayer.path = [UIBezierPath bezierPathWithArcCenter:center
+                                                           radius:self.ringRadius
+                                                       startAngle:startAngle
+                                                         endAngle:endAngle
+                                                        clockwise:YES].CGPath;
+}
+
+- (void)setRingThickness:(CGFloat)ringThickness {
+    _ringThickness = ringThickness;
+    
+    self.circleLayer.lineWidth   = self.ringThickness;
+}
+
 #pragma mark - Start and stop
 - (void)startAnimating {
     self.isAnimating = YES;
 
-    // Setup circle layer
-    [self setupCircleLayer];
-    
     self.circleLayer.hidden = NO;
     
     CAAnimationGroup *animGroup = [CAAnimationGroup animation];
