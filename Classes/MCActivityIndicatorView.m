@@ -8,6 +8,8 @@
 
 #import "MCActivityIndicatorView.h"
 
+#define MCMainThreadAssert() NSAssert([NSThread isMainThread], @"MCActivityIndicatorView needs to be accessed on the main thread.");
+
 #define DefaultRingColor ([UIColor darkGrayColor])
 
 static const CGFloat DefaultRingRadius = 10.0;
@@ -100,6 +102,8 @@ static const NSTimeInterval AnimationDuration = 0.5;
 
 #pragma mark - Start and stop
 - (void)startAnimating {
+    MCMainThreadAssert();
+    
     self.isAnimating = YES;
 
     self.circleLayer.hidden = NO;
@@ -115,6 +119,8 @@ static const NSTimeInterval AnimationDuration = 0.5;
 }
 
 - (void)stopAnimating {
+    MCMainThreadAssert();
+    
     self.isAnimating = NO;
 
     [self.circleLayer removeAllAnimations];
