@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "MCActivityIndicatorView"
-  s.version      = "0.0.4"
+  s.version      = "0.0.5"
   s.summary      = "An activity indicator view."
   s.description  = <<-DESC
   An activity indicator view, have fun.
