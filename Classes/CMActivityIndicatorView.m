@@ -1,14 +1,14 @@
 //
-//  MCActivityIndicatorView.m
-//  MCActivityIndicatorDemo
+//  CMActivityIndicatorView.m
+//  CMActivityIndicator
 //
 //  Created by Chao Ma on 02/10/2017.
 //  Copyright © 2017 iMegatron's Lab. All rights reserved.
 //
 
-#import "MCActivityIndicatorView.h"
+#import "CMActivityIndicatorView.h"
 
-#define MCMainThreadAssert() NSAssert([NSThread isMainThread], @"MCActivityIndicatorView needs to be accessed on the main thread.");
+#define CMMainThreadAssert() NSAssert([NSThread isMainThread], @"CMActivityIndicatorView needs to be accessed on the main thread.");
 
 #define DefaultRingColor ([UIColor darkGrayColor])
 
@@ -16,14 +16,14 @@ static const CGFloat DefaultRingRadius = 10.0;
 static const CGFloat DefaultRingThickness = 4.0;
 static const NSTimeInterval AnimationDuration = 0.5;
 
-@interface MCActivityIndicatorView ()
+@interface CMActivityIndicatorView ()
 
 @property (nonatomic, strong) CAShapeLayer *circleLayer;
 @property (nonatomic, assign) BOOL isAnimating;
 
 @end
 
-@implementation MCActivityIndicatorView
+@implementation CMActivityIndicatorView
 
 - (instancetype)init {
     self = [super init];
@@ -102,7 +102,7 @@ static const NSTimeInterval AnimationDuration = 0.5;
 
 #pragma mark - Start and stop
 - (void)startAnimating {
-    MCMainThreadAssert();
+    CMMainThreadAssert();
     
     self.isAnimating = YES;
 
@@ -119,7 +119,7 @@ static const NSTimeInterval AnimationDuration = 0.5;
 }
 
 - (void)stopAnimating {
-    MCMainThreadAssert();
+    CMMainThreadAssert();
     
     self.isAnimating = NO;
 
@@ -162,6 +162,11 @@ static const NSTimeInterval AnimationDuration = 0.5;
     if (self.isAnimating) {
         [self startAnimating];
     }
+}
+
+#pragma mark -
+- (void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 @end

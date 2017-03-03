@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4C3D7A2B1E4DA5F20082379A /* MCActivityIndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C3D7A2A1E4DA5F20082379A /* MCActivityIndicatorView.m */; };
+		4C39238C1E692DD600378735 /* CMActivityIndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C39238A1E692DD600378735 /* CMActivityIndicatorView.m */; };
 		4CFDE6F31E4D5F0F00F781C0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CFDE6F21E4D5F0F00F781C0 /* main.m */; };
 		4CFDE6F61E4D5F0F00F781C0 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CFDE6F51E4D5F0F00F781C0 /* AppDelegate.m */; };
 		4CFDE6F91E4D5F0F00F781C0 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CFDE6F81E4D5F0F00F781C0 /* ViewController.m */; };
@@ -19,8 +19,8 @@
 
 /* Begin PBXFileReference section */
 		057941C6020A1FE65D9312CF /* Pods-MCActivityIndicatorDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MCActivityIndicatorDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-MCActivityIndicatorDemo/Pods-MCActivityIndicatorDemo.release.xcconfig"; sourceTree = "<group>"; };
-		4C3D7A291E4DA5F20082379A /* MCActivityIndicatorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCActivityIndicatorView.h; sourceTree = "<group>"; };
-		4C3D7A2A1E4DA5F20082379A /* MCActivityIndicatorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCActivityIndicatorView.m; sourceTree = "<group>"; };
+		4C39238A1E692DD600378735 /* CMActivityIndicatorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMActivityIndicatorView.m; sourceTree = "<group>"; };
+		4C39238B1E692DD600378735 /* CMActivityIndicatorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMActivityIndicatorView.h; sourceTree = "<group>"; };
 		4CFDE6EE1E4D5F0F00F781C0 /* MCActivityIndicatorDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MCActivityIndicatorDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4CFDE6F21E4D5F0F00F781C0 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		4CFDE6F41E4D5F0F00F781C0 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -50,8 +50,8 @@
 		4C3D7A281E4DA5F20082379A /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				4C3D7A291E4DA5F20082379A /* MCActivityIndicatorView.h */,
-				4C3D7A2A1E4DA5F20082379A /* MCActivityIndicatorView.m */,
+				4C39238B1E692DD600378735 /* CMActivityIndicatorView.h */,
+				4C39238A1E692DD600378735 /* CMActivityIndicatorView.m */,
 			);
 			name = Classes;
 			path = ../Classes;
@@ -241,7 +241,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4CFDE6F91E4D5F0F00F781C0 /* ViewController.m in Sources */,
-				4C3D7A2B1E4DA5F20082379A /* MCActivityIndicatorView.m in Sources */,
+				4C39238C1E692DD600378735 /* CMActivityIndicatorView.m in Sources */,
 				4CFDE6F61E4D5F0F00F781C0 /* AppDelegate.m in Sources */,
 				4CFDE6F31E4D5F0F00F781C0 /* main.m in Sources */,
 			);

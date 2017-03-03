@@ -7,7 +7,7 @@
 //
 
 #import "ViewController.h"
-#import "MCActivityIndicatorView.h"
+#import "CMActivityIndicatorView.h"
 #import <Masonry.h>
 
 @interface ViewController ()
@@ -20,7 +20,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     
-    MCActivityIndicatorView *indicator = [[MCActivityIndicatorView alloc] init];
+    CMActivityIndicatorView *indicator = [[CMActivityIndicatorView alloc] init];
     //indicator.ringRadius = 50;
     [self.view addSubview: indicator];
     [indicator mas_makeConstraints:^(MASConstraintMaker *make){
